@@ -3,32 +3,57 @@
 React frontend for BloodMatch. Donors and Requesters can sign up, manage profiles, create/find requests, and coordinate donations. Matching is based on blood type and location; donor eligibility enforces a 54‑day cooldown.
 
 ## Tech
+
 - React + Vite
 - TypeScript (optional)
 - UI: Tailwind CSS (optional)
 - API base: `VITE_API_URL`
 
 ## Requirements
+
 - Node.js LTS
 - npm or pnpm
 - server API running (or staging URL)
 - .env file (see below)
 
 ## Environment Variables
-Create client/.env:
+
+Copy `.env.example` to `.env` and set your backend API URL:
+
 ```
-VITE_API_URL=http://localhost:5000
+cp .env.example .env
 ```
 
+Edit `.env` if your backend is not running on localhost:5000.
+
 ## Install & Run
+
 ```bash
 cd client
 npm install
 npm run dev
 ```
-Vite dev server defaults to http://localhost:5173.
 
-## App Structure 
+The Vite dev server defaults to http://localhost:5173.
+
+## Project Structure
+
+- `src/api/axios.js`: Axios instance for all API calls
+- `src/pages/`: Main pages (Landing, Auth, Profile)
+- `src/App.jsx`: App routes
+
+## .gitignore
+
+Your `.gitignore` should include:
+
+```
+node_modules
+dist
+.env
+```
+
+## App Structure
+
 - pages:
   - Landing: choose “I need blood” or “I can donate”
   - Auth: Login, Signup
@@ -41,9 +66,8 @@ Vite dev server defaults to http://localhost:5173.
     - Create Request: minimal fields, location defaults from profile
     - My Requests: list, status, details, applicants, Mark Resolved/Cancel
 
-
-
 ## API Integration
+
 - Auth: /auth/signup, /auth/login, /auth/refresh
 - Profiles: GET/PUT /me/profile
 - Requests:
@@ -54,14 +78,15 @@ Vite dev server defaults to http://localhost:5173.
   - Requester: GET /requests/:id/applicants
 
 ## UI States & Validation
+
 - Form validation on required fields
 - Clear error messages from API responses
 - Loading/skeleton states for lists and details
 - Empty states for no matches / no applicants
 - Character limit for case description (≤ 300)
 
-
 ## Accessibility & UX
+
 - Keyboard navigable forms and buttons
 - Semantic headings and labels
 - High-contrast text and focus outlines

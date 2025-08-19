@@ -15,14 +15,13 @@ BloodMatch is a PERN web platform that connects eligible blood donors with nearb
 - Frontend: React, Vite (or CRA), TypeScript, Tailwind (optional)
 - Backend: Node.js, Express, TypeScript (optional), JWT, bcrypt
 - Database: PostgreSQL (via Prisma or Sequelize/Knex)
-- Infra: Docker (optional), free-tier deployment targets
+- Infra: free-tier deployment targets
 
 ## Monorepo Layout
 ```
 bloodmatch/
 ├─ client/           # React app
 ├─ server/           # Express API
-├─ .env.example      # Sample environment variables
 └─ README.md
 ```
 
